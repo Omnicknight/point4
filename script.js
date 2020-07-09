@@ -1,19 +1,23 @@
 function getRandom() {
-    return Math.random();
+    return Math.floor(Math.random()*10+1);
 }
 let number = 1;
 
-while (number) {
-    let random = Math.floor(getRandom()*10+1);
-    number = +prompt('Угадайте число от 1 до 10',);
-    if (number === random) {
+    while (number !== false) {
+    let random = getRandom();
+    number = +prompt('Угадайте число от 1 до 10', '0');
+    if (isNaN(number)) {
+        console.log('введите число');
+    }
+    else if (number == false) {
+        console.log('Игра окончена');
+        break;
+    }
+    else if (number === random) {
         console.log('Вы угадали');
     }
     else if (number) {
         console.log('Вы не угадали');
-    }
-    else {
-        console.log('Игра окончена');
     }
 }
 // игра с угадыванием
